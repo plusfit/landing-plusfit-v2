@@ -1,5 +1,5 @@
 ---
-import { Play, ArrowRight } from "lucide-astro";
+import { Play, ArrowRight, MessageCircle } from "lucide-astro";
 ---
 
 <header
@@ -60,7 +60,7 @@ import { Play, ArrowRight } from "lucide-astro";
       class="flex flex-col md:flex-row gap-6 justify-center items-center animate-fade-in-up delay-500"
     >
       <a
-        href="https://www.plusfit.uy"
+        href="https://wa.me/59892744211?text=Hola!%20Me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20%2BFIT%20y%20reservar%20mi%20prueba%20gratis.%20Gracias!"
         class="group relative px-8 py-4 !bg-brand-yellow !text-black font-black uppercase tracking-widest rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(250,204,21,0.6)] ring-2 ring-transparent hover:ring-white/50"
       >
         <span class="relative z-10 flex items-center gap-2">
@@ -75,4 +75,34 @@ import { Play, ArrowRight } from "lucide-astro";
       </a>
     </div>
   </div>
+
+  <a
+    id="whatsapp-float"
+    href="https://wa.me/59892744211?text=Hola!%20Me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20%2BFIT%20y%20reservar%20mi%20prueba%20gratis.%20Gracias!"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+    class="fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-white shadow-[0_0_20px_rgba(37,211,102,0.35)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] opacity-0 pointer-events-none"
+  >
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-white/20">
+      <MessageCircle class="h-5 w-5" />
+    </div>
+    <span class="text-sm font-semibold tracking-wide">WhatsApp</span>
+  </a>
 </header>
+
+<script is:inline>
+  const whatsappButton = document.getElementById("whatsapp-float");
+
+  if (whatsappButton) {
+    const toggleVisibility = () => {
+      const shouldShow = window.scrollY > 220;
+      whatsappButton.classList.toggle("opacity-100", shouldShow);
+      whatsappButton.classList.toggle("opacity-0", !shouldShow);
+      whatsappButton.classList.toggle("pointer-events-none", !shouldShow);
+    };
+
+    toggleVisibility();
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
+  }
+</script>
